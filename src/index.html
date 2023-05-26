@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+  <main role="main" class="container">
+
+    <div class="wrapper">
+      <h1>Sign a Document</h1>
+      <div class="mb-3 px-5">
+        <div>
+          <label for="form-file" class="form-label">Upload a document to sign</label>
+          <input class="form-control" type="file" id="form-file">
+        </div>
+      </div>
+
+      <div class="mb-3 px-5">
+        <div id="error-message" class="alert alert-danger" role="alert" style="display: none;">
+          You already signed this document
+        </div>
+
+        <div id="preview-block" style="display: none;">
+          <object id="preview" data=""></object>
+          <div id="wrapper-btn-sign">
+            <button type="button" class="btn btn-success btn-lg m-3" id="sign-button">Sign Document</button>
+          </div>
+          <div id="success-message" class="alert alert-success" role="alert" style="display: none;">
+            You successfully signed this document
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/3.0.0-rc.5/web3.min.js" crossorigin="anonymous"></script>
+  <script language="javascript" type="text/javascript" src="./abi.js"></script>
+  <script language="javascript" type="text/javascript" src="./app.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</body>
+
+</html>
