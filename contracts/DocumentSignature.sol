@@ -8,19 +8,17 @@ contract DocumentSignature {
     }
 
     mapping(bytes32 => Document) private documents;
-    mapping(bytes32 => bool) private documentsExists;
 
     function sign(address account, string memory base64) public {
         // Calculate the hash of the URL using the hashDocument().
         bytes32 hash = hashDocument(base64);
 
         // Create a new Document struct in the documents mapping with the hash and an empty list of signers.
-        if(!documentsExists[hash]) {
+        if(documents[hash].hash == 0) {
             documents[hash] = Document({
                 hash: hash,
                 signers: new address[](0)
             });
-            documentsExists[hash] = true;
         }
 
         // Add the account address to the signers list of the corresponding Document struct. 
@@ -31,8 +29,8 @@ contract DocumentSignature {
         // Calculate the hash of the URL using the hashDocument().
         bytes32 hash = hashDocument(base64);
 
-        // Check if the document exists in the documentsExists mapping.
-        if(!documentsExists[hash]) {
+        // Check if the document exists in the documents mapping.
+        if(documents[hash].hash == 0) {
             return false;
         }
 
